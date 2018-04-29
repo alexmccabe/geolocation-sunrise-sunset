@@ -1,0 +1,28 @@
+@import 'remove-unit';
+
+@function pxtoem($input, $base: 16px) {
+    $input: remove-unit($input);
+    $base: remove-unit($base);
+
+    @return ($input / $base) * 1em;
+}
+
+@function pxtorem($input, $base: 16px) {
+    $input: remove-unit($input);
+    $base: remove-unit($base);
+
+    @return ($input / $base) * 1rem;
+}
+
+@function pttopx($input, $base: 16px) {
+    $input: remove-unit($input);
+    $base: remove-unit($base);
+
+    @return ($input * 1.3333) * 1px;
+}
+
+@function pttoem($input, $base: 16px) {
+    $px: pttopx($input, $base);
+
+    @return pxtoem($px, $base);
+}

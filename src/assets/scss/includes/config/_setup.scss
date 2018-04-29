@@ -1,0 +1,19 @@
+// Font weights
+$extra-light: 100;
+$light: 300;
+$regular: 400;
+$bold: 600;
+$heavy: 700;
+
+// Base font styles
+$base-font-family: 'Gotham', Helvetica, 'Gill Sans', Candara, Optima, Helvetica, Arial, sans-serif;
+$base-font-weight: $regular;
+$base-font-size: 16px;
+$base-line-height: 1.3;
+
+$heading-font-family: 'Gotham', Helvetica, Arial, sans-serif;
+$heading-font-weight: $light;
+$heading-line-height: 0.79; // Magic number calculated from .psd
+
+$quote-font-family: $heading-font-family;
+$quote-line-height: $base-line-height + 0.3;
