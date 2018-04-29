@@ -222,7 +222,7 @@ $background-transition-time: 120s;
     transition-delay: 3s;
 
     .is-visible & {
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
 }
 
