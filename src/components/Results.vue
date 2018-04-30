@@ -49,18 +49,19 @@ export default {
 .results {
     font-size: 2rem;
     letter-spacing: kerning(200);
-    margin-bottom: 3rem;
     max-width: 900px;
 
     @media (min-width: 768px) {
         display: flex;
+        margin-bottom: 3rem;
         width: 75%;
     }
 
     .result {
-        padding: 4rem;
+        padding: 2rem;
 
         @media (min-width: 768px) {
+            padding: 4rem;
             width: 50%;
         }
 
