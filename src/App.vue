@@ -27,39 +27,10 @@
             ref="results"
             class="page"
         >
-            <div
+            <am-results
                 :class="{'is-visible': showResult}"
-                class="results"
-            >
-                <div class="result sunrise">
-                    <div class="result-inner">
-                        <div class="result-title">
-                            <div class="result-title-inner">
-                                Sunrise
-                            </div>
-                        </div>
-
-                        <div class="result-time">
-                            {{ results.sunrise }}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result sunset">
-                    <div class="result-inner">
-                        <div class="result-title">
-                            <div class="result-title-inner">
-                                Sunset
-                            </div>
-                        </div>
-
-                        <div class="result-time">
-                            {{ results.sunset }}
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+                :data="results"
+            />
 
             <button
                 class="reset"
@@ -75,10 +46,11 @@ import HTTP from '@/http';
 import { animatedScroll } from '@/utilities';
 
 import AmGetGeolocation from '@/components/Geolocation';
+import AmResults from '@/components/Results';
 
 export default {
     name: 'App',
-    components: { AmGetGeolocation },
+    components: { AmGetGeolocation, AmResults },
 
     data() {
         return {
@@ -166,73 +138,9 @@ $background-transition-time: 120s;
     height: 100%;
     justify-content: center;
     letter-spacing: kerning(100);
+    padding: 2rem;
     text-align: center;
     text-transform: uppercase;
-}
-
-.results {
-    display: flex;
-    font-size: 2rem;
-    letter-spacing: kerning(200);
-    margin-bottom: 3rem;
-    max-width: 900px;
-    width: 75%;
-
-    .result {
-        padding: 4rem;
-        width: 50%;
-
-        &:first-child {
-            border-right: 2px solid;
-        }
-
-        &:last-child .result-inner {
-            transition-delay: 2s;
-        }
-
-        .result-inner {
-            opacity: 0;
-            transition: opacity 0.3s 1.5s $cubic-bezier;
-        }
-    }
-
-    &.is-visible {
-        .result * {
-            opacity: 1;
-        }
-    }
-}
-
-.result-title {
-    overflow: hidden;
-    position: relative;
-}
-
-.result-title-inner {
-    opacity: 0;
-    transition: transform 1s ease-out, opacity 0.75s ease-out;
-
-    .is-visible & {
-        opacity: 1;
-    }
-}
-
-.sunset .result-title-inner {
-    transform: translateY(0);
-    transition-delay: 3s;
-
-    .is-visible & {
-        transform: translateY(15px);
-    }
-}
-
-.sunrise .result-title-inner {
-    transform: translateY(50px);
-    transition-delay: 2s;
-
-    .is-visible & {
-        transform: translateY(10px);
-    }
 }
 
 .sunrise-bg,
